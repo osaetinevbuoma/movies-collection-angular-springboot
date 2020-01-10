@@ -19,3 +19,6 @@ The `moviedb-app-client` and `moviedb_app_server` run on independent servers (An
 
 * In `moviedb_app_server`, `./gradlew bootRun` starts the Tomcat server.
 * In `moviedb-app-client`, `ng serve` starts the Angular front-end. Visit `http://localhost:4200` in your browser to view the running application.
+
+## Demo
+A demonstration of the application can be accessed [here](https://angular-movie-db-frontend.herokuapp.com/).
