@@ -1,0 +1,9 @@
+.movie-backdrop {
+    height: 300px;
+    overflow: hidden;
+}
+
+.movie-detail-label {
+    font-style: italic;
+    color: #5a6268;
+}

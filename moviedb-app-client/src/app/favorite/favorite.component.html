@@ -1,0 +1,38 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4 shadow-sm">
+
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Movie Title</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let movie of movies">
+                                <td>{{ movie.title }}</td>
+                                <td>
+                                    <a [routerLink]="['/movie/' + movie.id]"
+                                       class="btn btn-outline-secondary">
+                                        View Details
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline-secondary" type="button"
+                                            (click)="removeFromFavorite(movie)">
+                                        Remove from Favorite
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

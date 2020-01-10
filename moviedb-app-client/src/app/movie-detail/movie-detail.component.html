@@ -1,0 +1,75 @@
+<div *ngIf="movie">
+    <div class="jumbotron p-4 p-md-1 text-white bg-light movie-backdrop" align="center">
+        <img [src]="'https://image.tmdb.org/t/p/w1280/' + movie.backdropPath" class="img-fluid">
+    </div>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="row">
+                            <div class="col-4">
+                                <img [src]="'https://image.tmdb.org/t/p/w342/' + movie.posterPath">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h1 class="card-text">{{ movie.title }}</h1>
+
+                                    <label class="movie-detail-label">Release Date</label>
+                                    <p class="card-text">{{ movie.releaseDate | date }}</p>
+
+                                    <label class="movie-detail-label">Runtime</label>
+                                    <p class="card-text">{{ movie.runtime | runtime }}</p>
+
+                                    <label class="movie-detail-label">Genres</label>
+                                    <p class="card-text">
+                                        <span *ngFor="let genre of movie.genres; index as i">
+                                            <span *ngIf="i === movie.genres.length - 1">{{ genre.name }}</span>
+                                            <span *ngIf="i < movie.genres.length - 1">{{ genre.name }}, </span>
+                                        </span>
+                                    </p>
+
+                                    <label class="movie-detail-label">Budget</label>
+                                    <p class="card-text">{{ movie.budget | currency }}</p>
+
+                                    <label class="movie-detail-label">Rating</label>
+                                    <p class="card-text">{{ movie.voteAverage }}</p>
+
+                                    <label class="movie-detail-label">Website</label>
+                                    <p class="card-link">
+                                        <a [href]="movie.homepage" target="_blank">
+                                            {{ movie.homepage }}
+                                        </a>
+                                    </p>
+
+                                    <label class="movie-detail-label">Release Status</label>
+                                    <p class="card-text">{{ movie.status }}</p>
+
+                                    <label class="movie-detail-label">Overview</label>
+                                    <p class="card-text">{{ movie.overview }}</p>
+
+                                    <button type="button" class="btn btn-outline-secondary"
+                                            *ngIf="!movie.isFavorite" (click)="addToFavorite(movie)">
+                                        Add to Favorite
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary"
+                                            *ngIf="movie.isFavorite"
+                                            (click)="removeFromFavorite(movie.id)">
+                                        Remove from Favorite
+                                    </button>
+                                    &nbsp;
+                                    <button type="button" class="btn btn-outline-secondary"
+                                            (click)="goBack()">
+                                        Back
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
